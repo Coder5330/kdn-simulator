@@ -371,6 +371,7 @@ body {
 
 .label {
     display: flex;
+    width: 100%;
 }
 
 .left {
