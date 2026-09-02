@@ -346,3 +346,10 @@ body {
     align-items: center;
     gap: 12px;
 }
+
+.chats {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: left;
+}
