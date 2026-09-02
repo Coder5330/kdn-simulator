@@ -389,3 +389,11 @@ body {
     display: flex;
     gap: 14px;
 }
+
+.swap-tab-menu {
+    background: #999;
+}
+
+.swap-tab {
+    font-size: 7px;
+}
