@@ -360,8 +360,9 @@ body {
 .chat {
     display: flex;
     flex-direction: row;
-    gap: 6px;
+    gap: 16px;
     width: 100%;
+    font-size: 14px;
 }
 
 .chats {
