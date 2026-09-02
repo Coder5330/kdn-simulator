@@ -357,6 +357,13 @@ body {
     width: 100%;
 }
 
+.chat {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    width: 100%;
+}
+
 .chats {
     width: 100%;
 }
