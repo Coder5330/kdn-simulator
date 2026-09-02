@@ -369,6 +369,10 @@ body {
     width: 100%;
 }
 
+.label {
+    display: flex;
+}
+
 .left {
     margin-left: 0px;
 }
