@@ -276,9 +276,17 @@ body {
 
 .add-icon {
     font-size: 18px;
-    background-color: var(--plus-button);
     color: var(--text-muted);
     cursor: pointer;
+}
+
+.new-chat {
+    background-color: var(--plus-button);
+    font-size: 18px;
+    color: var(--text-muted);
+    cursor: pointer;
+    width: 10px;
+    border-radius: 50%;
 }
 
 .mode-toggle {
