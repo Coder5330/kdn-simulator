@@ -4,10 +4,11 @@
     --border-color: #e5e4df;
     --border-subtle: #f0efe9;
     --text-main: #1f1f1f;
-    --text-muted: #EAE9E4;
+    --text-muted: #6b6a65;
     --text-light: #8e8d88;
     --chip-bg: #eceae3;
     --accent-blue: #3b82f6;
+    --plus-button: #EAE9E4;
 }
 
 *,
@@ -275,7 +276,7 @@ body {
 
 .add-icon {
     font-size: 18px;
-    color: var(--text-muted);
+    color: var(--plus-button);
     cursor: pointer;
 }
 
