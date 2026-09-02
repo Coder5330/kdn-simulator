@@ -391,7 +391,9 @@ body {
 }
 
 .swap-tab-menu {
-    background: #CCC;
+    background: #EEE;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .swap-tab {
