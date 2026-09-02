@@ -65,7 +65,7 @@ body {
     flex-direction: column;
     gap: 10px;
     list-style: none;
-    font-size: 21px;
+    font-size: 14px;
     color: var(--text-main);
 }
 
