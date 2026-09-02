@@ -352,4 +352,6 @@ body {
     flex-direction: row;
     gap: 20px;
     justify-content: left;
+    align-items: center;
+    width: 100%;
 }
