@@ -347,7 +347,7 @@ body {
     gap: 12px;
 }
 
-.chats {
+.chat {
     display: flex;
     flex-direction: row;
     gap: 20px;
