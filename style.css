@@ -387,6 +387,5 @@ body {
 
 .menu-buttons {
     display: flex;
-    gap: 6px;
-    margin-left: auto;
+    gap: 10px;
 }
