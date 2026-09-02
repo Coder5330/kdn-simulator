@@ -403,3 +403,7 @@ body {
 .swap-tab {
     font-size: 7px;
 }
+
+#claude-txt {
+    font-family: "Anthropic Serif", "Tiempos Headline", "Tiempos Text", Georgia, serif;
+}
