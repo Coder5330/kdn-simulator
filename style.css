@@ -276,7 +276,8 @@ body {
 
 .add-icon {
     font-size: 18px;
-    color: var(--plus-button);
+    background-color: var(--plus-button);
+    color: var(--text-muted);
     cursor: pointer;
 }
 
