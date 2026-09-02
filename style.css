@@ -405,5 +405,7 @@ body {
 }
 
 #claude-txt {
-    font-family: "Anthropic Serif", "Tiempos Headline", "Tiempos Text", Georgia, serif;
+    font-family: Georgia, "Source Serif 4", "Freight Text", serif;
+    color: #000;
+    font-size: 32px;
 }
