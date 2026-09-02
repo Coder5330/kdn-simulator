@@ -368,3 +368,11 @@ body {
 .chats {
     width: 100%;
 }
+
+.left {
+    margin-left: 0px;
+}
+
+.right {
+    margin-left: auto;
+}
