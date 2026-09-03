@@ -338,18 +338,20 @@ body {
 }
 
 .progress-wrapper {
+    position: relative; /* Set this parent to relative so absolute children position themselves correctly inside it */
     display: inline-flex;
     align-items: center;
     gap: 6px;
     font-family: sans-serif;
+    min-height: 40px; /* Optional: gives the container explicit breathing room */
 }
 
 .progress-container {
     position: absolute;
     top: 10px;
-    left: calc(vw - 40px);
-    width: 18px;
-    height: 18px;
+    left: calc(100vw - 40px); /* FIXED: Changed 'vw' to '100vw' so the browser can calculate it */
+    width: 24px;              /* FIXED: Upgraded container to match your perfect 24px SVG size */
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -365,16 +367,19 @@ body {
 .track-circle {
     fill: none;
     stroke: #f3f3f3;
-    stroke-width: 12;
+    stroke-width: 2.5; /* FIXED: Correct thickness for a 24px display */
 }
 
 .progress-circle {
     fill: none;
     stroke: #b36b5d;
-    stroke-width: 12;
+    stroke-width: 2.5; /* FIXED: Correct thickness for a 24px display */
     stroke-linecap: round;
-    stroke-dasharray: 283;
-    stroke-dashoffset: 283;
+    
+    /* FIXED: Correct math parameters for a 24px layout circle */
+    stroke-dasharray: 59.69;
+    stroke-dashoffset: 5.97; 
+    
     transition: stroke-dashoffset 0.3s ease;
 }
 
