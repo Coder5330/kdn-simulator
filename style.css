@@ -237,13 +237,20 @@ body {
     gap: 12px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&display=swap');
+@font-face {
+  font-family: anthropic-serif;
+  src: url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c66fc489e-2VcCjn5t.woff2)
+       format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
 
 .welcome-msg {
-  font-family: 'Fraunces', 'Times New Roman', serif;
-  font-size: 2.8855rem;
-  font-weight: 340;
-  font-variation-settings: "opsz" 96;
+  font-family: anthropic-serif, 'Times New Roman', serif;
+  font-size: clamp(1.875rem, 1.2rem + 2vw, 2.375rem);
+  font-weight: 330;
+  font-variation-settings: "opsz" 48;
   line-height: 1.25;
   text-wrap: balance;
   margin-bottom: 8px;
