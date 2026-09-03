@@ -201,14 +201,23 @@
         </aside>
 
         <main class="main-content">
-            <svg viewBox="0 0 24 24" style="transform: rotate(-90deg); width: 24px; height: 24px; display: block;">
-              <!-- Gray background track -->
-              <circle cx="12" cy="12" r="9.5" fill="none" stroke="#f3f3f3" stroke-width="2.5"></circle>
+            <div class="progress-wrapper">
+  
+              <!-- Absolute positioned container -->
+              <div class="progress-container">
+                <svg class="progress-svg" viewBox="0 0 24 24">
+                  <!-- Background track ring -->
+                  <circle class="track-circle" cx="12" cy="12" r="9.5"></circle>
+                  <!-- Foreground progress ring (Pre-loaded at 90%) -->
+                  <circle class="progress-circle" id="ring" cx="12" cy="12" r="9.5"></circle>
+                </svg>
+              </div>
               
-              <!-- Terracotta progress ring (Pre-calculated at 90% progress) -->
-              <circle cx="12" cy="12" r="9.5" fill="none" stroke="#b36b5d" stroke-width="2.5" stroke-linecap="round"
-                      stroke-dasharray="59.69" stroke-dashoffset="5.97"></circle>
-            </svg>
+              <!-- The percentage text label -->
+              <div class="progress-text" id="text">90%</div>
+            
+            </div>
+
             <div class="container">
                 <div class="notice-banner">
                     <span class="info-icon">i</span>
