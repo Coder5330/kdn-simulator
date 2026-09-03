@@ -59,6 +59,8 @@ body {
 .top-icons {
     gap: 8px;
     color: var(--text-muted);
+    display: flex;
+    align-items: baseline;
 }
 
 .nav-list {
