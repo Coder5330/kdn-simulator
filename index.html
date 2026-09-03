@@ -207,15 +207,15 @@
                     <span>Claude Fable 5.1 works best with the latest desktop app.</span>
                 </div>
 
-                <div class="progress-wrapper">
-                    <div class="progress-container">
-                        <svg class="progress-svg" viewBox="0 0 18 18">
-                            <circle class="track-circle" cx="9" cy="9" r="7.5"></circle>
-                            <circle class="progress-circle" id="ring" cx="9" cy="9" r="7.5"></circle>
-                        </svg>
-                    </div>
-                    <div class="progress-text" id="text">90%</div>
-                </div>
+                <svg viewBox="0 0 36 36" style="transform: rotate(-90deg); width: 36px; height: 36px; display: block;">
+  <!-- Gray background track -->
+  <circle cx="18" cy="18" r="15" fill="none" stroke="#f3f3f3" stroke-width="4"></circle>
+  
+  <!-- Terracotta colored progress ring (Pre-calculated at 90% progress) -->
+  <circle cx="18" cy="18" r="15" fill="none" stroke="#b36b5d" stroke-width="4" stroke-linecap="round"
+          stroke-dasharray="94.25" stroke-dashoffset="9.42"></circle>
+</svg>
+
 
                 <div class="welcome-container">
                     <img src="assets/claude.png" alt="Claude" width="40" height="40">
