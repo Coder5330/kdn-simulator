@@ -337,7 +337,7 @@ body {
     font-size: 22px;
 }
 
-.progress-wrapper {
+.wrapper {
     position: absolute;
     top: 16px;
     right: 24px;
@@ -362,16 +362,14 @@ body {
 .track-circle {
     fill: none;
     stroke: #f3f3f3;
-    stroke-width: 2.5; /* FIXED: Correct thickness for a 24px display */
+    stroke-width: 2.5;
 }
 
 .progress-circle {
     fill: none;
     stroke: #b36b5d;
-    stroke-width: 2.5; /* FIXED: Correct thickness for a 24px display */
+    stroke-width: 2.5;
     stroke-linecap: round;
-    
-    /* FIXED: Correct math parameters for a 24px layout circle */
     stroke-dasharray: 59.69;
     stroke-dashoffset: 5.97; 
     
