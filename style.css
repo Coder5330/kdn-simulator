@@ -288,6 +288,9 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .mode-toggle {
