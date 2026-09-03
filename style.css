@@ -338,23 +338,18 @@ body {
 }
 
 .progress-wrapper {
-    position: relative; /* Set this parent to relative so absolute children position themselves correctly inside it */
-    display: inline-flex;
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    display: flex;
     align-items: center;
-    gap: 6px;
-    font-family: sans-serif;
-    min-height: 40px; /* Optional: gives the container explicit breathing room */
+    gap: 8px;
 }
 
 .progress-container {
-    position: absolute;
-    top: 10px;
-    left: calc(100vw - 40px); /* FIXED: Changed 'vw' to '100vw' so the browser can calculate it */
-    width: 24px;              /* FIXED: Upgraded container to match your perfect 24px SVG size */
+    position: relative;
+    width: 24px;
     height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .progress-svg {
