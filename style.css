@@ -325,6 +325,7 @@ body {
     font-size: 13px;
     color: var(--text-muted);
     cursor: pointer;
+    width: 1em;
 
     &.active {
         background: #fff;
