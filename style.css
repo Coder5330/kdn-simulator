@@ -345,7 +345,9 @@ body {
 }
 
 .progress-container {
-    position: relative;
+    position: absolute;
+    top: 10px;
+    left: calc(vw - 40px);
     width: 18px;
     height: 18px;
     display: flex;
