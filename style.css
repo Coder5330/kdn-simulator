@@ -238,22 +238,22 @@ body {
 }
 
 @font-face {
-  font-family: anthropic-serif;
-  src: url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c66fc489e-2VcCjn5t.woff2)
+    font-family: anthropic-serif;
+    src: url(https://assets-proxy.anthropic.com/claude-ai/v2/assets/v1/c66fc489e-2VcCjn5t.woff2)
        format("woff2");
-  font-weight: 300 800;
-  font-style: normal;
-  font-display: swap;
+    font-weight: 300 800;
+    font-style: normal;
+    font-display: swap;
 }
 
 .welcome-msg {
-  font-family: anthropic-serif, 'Times New Roman', serif;
-  font-size: clamp(1.875rem, 1.2rem + 2vw, 2.375rem);
-  font-weight: 330;
-  font-variation-settings: "opsz" 48;
-  line-height: 1.25;
-  text-wrap: balance;
-  margin-bottom: 8px;
+    font-family: anthropic-serif, 'Times New Roman', serif;
+    font-size: clamp(1.875rem, 1.2rem + 2vw, 2.375rem);
+    font-weight: 330;
+    font-variation-settings: "opsz" 48;
+    line-height: 1.25;
+    text-wrap: balance;
+    margin-bottom: 8px;
 }
 
 .input-card {
@@ -332,9 +332,13 @@ body {
 }
 
 #claude-txt {
-    font-family: Georgia, "Source Serif 4", "Freight Text", serif;
-    color: #000;
-    font-size: 22px;
+    font-family: anthropic-serif, 'Times New Roman', serif;
+    font-size: clamp(1.875rem, 1.2rem + 2vw, 2.375rem);
+    font-weight: 330;
+    font-variation-settings: "opsz" 48;
+    line-height: 1.25;
+    text-wrap: balance;
+    margin-bottom: 8px;
 }
 
 .wrapper {
