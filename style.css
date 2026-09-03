@@ -286,6 +286,7 @@ body {
     color: var(--text-muted);
     cursor: pointer;
     width: 10px;
+    height: 10px;
     border-radius: 50%;
 }
 
