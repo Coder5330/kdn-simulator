@@ -62,28 +62,91 @@ const codeHTML = `
         </div>
         <div class="code-content">
             <div class="select-panel">
-                <ul class="main-menu">
-                    <li>Local</li>
-                    
-                    <li class="has-submenu">
-                        Cloud <span class="arrow">›</span>
-                        
-                        <ul class="submenu">
-                            <li class="selected">
-                                Default
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.5 12.5 L10 17 L18.5 7.5" stroke="#0080ff" stroke-width="1.8"
-                                        stroke-linecap="round" stroke-linejoin="round"/>
+                <div class="menu-wrapper">
+                    <button class="open-menu-button" id="open-location-menu-button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
+                                    stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Default
+                    </button>
+
+                    <ul class="main-menu" id="locationMenu">
+                        <li>
+                            <div class="left align-center">
+                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2.25" y="2.5" width="10.5" height="7.75" rx="1"
+                                            stroke="currentColor" stroke-width="0.75"/>
+                                    <rect x="0.75" y="10.25" width="13.5" height="2.25" rx="1.125"
+                                            stroke="currentColor" stroke-width="0.75"/>
                                 </svg>
-                            </li>
-                            <hr color="#DDD" size="1">
-                            <li class="action">+ Add cloud environment...</li>
-                        </ul>
-                    </li>
-                    
-                    <li class="has-submenu">Remote Control <span class="arrow">›</span></li>
-                    <li class="has-submenu">SSH <span class="arrow">›</span></li>
-                </ul>
+                                Local
+                            </div>
+                            <div class="right align-center">
+                                <div class="badge">Download</div>
+                                <span class="badge badge-no-bg">Desktop only</span>
+                            </div>
+                        </li>
+
+                        <li class="has-submenu">
+                            <div class="left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
+                                            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Cloud</span>
+                            </div>
+
+                            <div class="right">
+                                <span class="arrow">›</span>
+                            </div>
+
+                            <ul class="submenu">
+                                <li class="selected">
+                                    Default
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 12.5 L10 17 L18.5 7.5" stroke="#0080ff" stroke-width="1.8"
+                                            stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="action">+ Add cloud environment...</li>
+                            </ul>
+                        </li>
+
+                        <li class="has-submenu">
+                            <div class="left">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 2.5 L5 17.5 L8.7 14 L11 19.5 L13.5 18.5 L11.2 13.2 L16 13.2 Z"
+                                            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Remote Control</span>
+                            </div>
+
+                            <div class="right">
+                                <span class="arrow">›</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-wrapper">
+                    <button class="open-menu-button" id="open-github-repos-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="8 7 3 12 8 17"/>
+                            <line x1="15" y1="3.5" x2="9" y2="20.5"/>
+                            <polyline points="16 7 21 12 16 17"/>
+                        </svg>
+                        bounce-dodge
+                    </button>
+
+                    <ul class="main-menu" id="github-repos">
+                        <li class="selected">261494l-alt/bounce-dodge</li>
+                        <li>261494l-alt/nullfield</li>
+                        <li>261494l-alt/chicken-clicker</li>
+                        <li>261494l-alt/wro-codes</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -137,4 +200,46 @@ toggleBtns.forEach(btn => {
         toggleBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
     });
+});
+
+document.addEventListener('click', (event) => {
+    if (event.target.closest('#open-location-menu-button')) {
+        document.getElementById("locationMenu").style.display = "block";
+    }
+});
+
+document.addEventListener('click', (event) => {
+    const menuButton = event.target.closest('#open-location-menu-button');
+    const locationMenu = document.getElementById('locationMenu');
+    const githubReposButton = event.target.closest('#open-github-repos-button');
+    const gitHubReposMenu = document.getElementById('github-repos');
+
+    if (menuButton) {
+        if (locationMenu) {
+            const isCurrentlyVisible = locationMenu.style.display === "flex";
+            locationMenu.style.display = isCurrentlyVisible ? "none" : "flex";
+        }
+    } 
+    else if (locationMenu && locationMenu.style.display === "flex") {
+        const clickedInsideMenu = event.target.closest('#locationMenu');
+        
+        if (!clickedInsideMenu) {
+            locationMenu.style.display = "none";
+        }
+    }
+
+    if (githubReposButton) {
+        if (gitHubReposMenu) {
+            const isCurrentlyVisible = gitHubReposMenu.style.display === "flex";
+            gitHubReposMenu.style.display = isCurrentlyVisible ? "none" : "flex";
+        }
+    } 
+    else if (gitHubReposMenu && gitHubReposMenu.style.display === "flex") {
+        const clickedInsideMenu = event.target.closest('#github-repos');
+        
+        if (!clickedInsideMenu) {
+            gitHubReposMenu.style.display = "none";
+        }
+    }
+
 });
