@@ -821,3 +821,129 @@ pre .caret {
     color: var(--text-light);
     text-align: center;
 }
+
+/* ---------- file operation cards ---------- */
+
+.tool-card {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.tool-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: var(--text-muted);
+}
+
+.tool-card.done .tool-head {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.tool-card.running .tool-head {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.tool-verb {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.tool-file {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tool-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+    padding-left: 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+
+.tool-status .stat {
+    font-weight: 600;
+}
+
+.tool-status .stat.add { color: #1a7f3c; }
+.tool-status .stat.del { color: #b3352c; margin-left: 6px; }
+
+.tool-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-light);
+    animation: bob 1.1s ease-in-out infinite;
+}
+
+.tool-body {
+    max-height: 240px;
+    overflow: auto;
+    padding: 6px 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.tool-body:empty {
+    display: none;
+}
+
+.tool-body .dl {
+    padding: 0 12px;
+    white-space: pre;
+}
+
+.tool-body .dl.ctx  { color: var(--text-muted); }
+.tool-body .dl.add  { background: #e8f6ec; color: #14682f; }
+.tool-body .dl.del  { background: #fdecea; color: #9c2b22; }
+.tool-body .dl.more {
+    color: var(--text-light);
+    font-style: italic;
+    padding-top: 4px;
+}
+
+.tool-card.bash .tool-body {
+    background: #1f1e1b;
+    padding: 10px 0;
+}
+
+.tool-card.bash .dl.out {
+    color: #cfccc2;
+}
+
+.tool-card.expanded .tool-body {
+    max-height: none;
+}
+
+.tool-more {
+    display: block;
+    width: 100%;
+    padding: 7px 12px;
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    background: #FBFBF9;
+    font-family: inherit;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    text-align: left;
+    cursor: pointer;
+}
+
+.tool-more:hover {
+    background: var(--chip-bg);
+    color: var(--text-main);
+}

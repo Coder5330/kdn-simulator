@@ -411,6 +411,132 @@ function resetComposer(state) {
     state.composer.textContent = 'Reply to Claude...';
 }
 
+/* ---------- file operation cards ---------- */
+
+const TOOL_META = {
+    write: { verb: 'Write', running: 'Writing\u2026' },
+    edit:  { verb: 'Edit',  running: 'Editing\u2026' },
+    bash:  { verb: 'Run',   running: 'Running\u2026' }
+};
+
+const TOOL_ICONS = {
+    write: `<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.2 1.6H3.6A1.6 1.6 0 0 0 2 3.2v9.6a1.6 1.6 0 0 0 1.6 1.6h8.8a1.6 1.6 0 0 0 1.6-1.6V6.4z"/>
+                <path d="M9.2 1.6v4.8H14"/>
+            </svg>`,
+    edit:  `<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11.4 2.2 13.8 4.6 6 12.4l-3.1.7.7-3.1z"/>
+                <path d="M10 3.6 12.4 6"/>
+            </svg>`,
+    bash:  `<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="3 4.5 6.2 8 3 11.5"/>
+                <line x1="8.2" y1="11.6" x2="13" y2="11.6"/>
+            </svg>`
+};
+
+const PREVIEW_LIMIT = 120;
+const COLLAPSE_ROWS = 14;
+
+function toolRows(part) {
+    const rows = [];
+
+    if (part.type === 'bash') {
+        (part.out || '').split('\n').forEach(line => rows.push({ cls: 'out', text: line }));
+        return rows;
+    }
+
+    if (part.type === 'write') {
+        const lines = (part.code || '').split('\n');
+        lines.slice(0, PREVIEW_LIMIT).forEach(line => rows.push({ cls: 'ctx', text: line }));
+
+        const hidden = (part.lines || lines.length) - Math.min(lines.length, PREVIEW_LIMIT);
+        if (hidden > 0) rows.push({ cls: 'more', text: '\u2026 ' + hidden + ' more lines' });
+        return rows;
+    }
+
+    (part.diff || []).forEach(line => {
+        const mark = line.charAt(0);
+        rows.push({
+            cls: mark === '+' ? 'add' : mark === '-' ? 'del' : 'ctx',
+            text: line
+        });
+    });
+    return rows;
+}
+
+function toolDoneLabel(part) {
+    if (part.type === 'write') {
+        return '<span class="stat add">+' + (part.lines || 0) + '</span> lines';
+    }
+    if (part.type === 'edit') {
+        return '<span class="stat add">+' + (part.add || 0) + '</span>' +
+               '<span class="stat del">\u2212' + (part.del || 0) + '</span>';
+    }
+    return 'Done';
+}
+
+async function playToolPart(body, part, state) {
+    const meta = TOOL_META[part.type];
+    if (!meta) return;
+
+    const card = document.createElement('div');
+    card.className = 'tool-card running ' + part.type;
+    card.innerHTML = `
+        <div class="tool-head">
+            ${TOOL_ICONS[part.type]}
+            <span class="tool-verb">${meta.verb}</span>
+            <span class="tool-file">${escapeHTML(part.file || part.cmd || '')}</span>
+            <span class="tool-status"><span class="tool-dot"></span>${meta.running}</span>
+        </div>
+        <div class="tool-body"></div>
+    `;
+    body.appendChild(card);
+    state.scroll();
+
+    await wait(part.think || 700, state);
+
+    const rows = toolRows(part);
+    const target = card.querySelector('.tool-body');
+    const delay = Math.max(16, Math.min(55, 900 / Math.max(1, rows.length)));
+
+    for (const row of rows) {
+        const line = document.createElement('div');
+        line.className = 'dl ' + row.cls;
+        line.textContent = row.text === '' ? ' ' : row.text;
+        target.appendChild(line);
+        state.scroll();
+
+        if (!state.skip) {
+            await sleep(delay);
+            guard(state);
+        }
+    }
+
+    card.classList.remove('running');
+    card.classList.add('done');
+    card.querySelector('.tool-status').innerHTML = toolDoneLabel(part);
+
+    /* present the finished file from the top rather than leaving it
+       scrolled to wherever the writing happened to end */
+    target.scrollTop = 0;
+
+    if (rows.length > COLLAPSE_ROWS) {
+        const toggle = document.createElement('button');
+        toggle.className = 'tool-more';
+        toggle.textContent = 'Show all ' + rows.length + ' lines';
+
+        toggle.addEventListener('click', event => {
+            event.stopPropagation();
+            const open = card.classList.toggle('expanded');
+            toggle.textContent = open ? 'Show less' : 'Show all ' + rows.length + ' lines';
+        });
+
+        card.appendChild(toggle);
+    }
+
+    state.scroll();
+}
+
 async function playMessage(message, state) {
     await wait(message.pause || 400, state);
 
@@ -446,12 +572,22 @@ async function playMessage(message, state) {
     const body = wrap.querySelector('.msg-body');
     body.innerHTML = '';
 
-    const source = document.createElement('div');
-    source.innerHTML = renderMarkdown(message.text);
+    const parts = message.parts || [{ type: 'text', text: message.text }];
 
-    state.chars = message.speed || 2;
-    for (const child of Array.from(source.childNodes)) {
-        await streamNode(body, child, state);
+    for (const part of parts) {
+        if (part.type === 'text') {
+            const source = document.createElement('div');
+            source.innerHTML = renderMarkdown(part.text);
+
+            state.chars = part.speed || message.speed || 2;
+            for (const child of Array.from(source.childNodes)) {
+                await streamNode(body, child, state);
+            }
+            state.caret.remove();
+        }
+        else {
+            await playToolPart(body, part, state);
+        }
     }
 
     state.caret.remove();
