@@ -61,74 +61,93 @@ const codeHTML = `
             </div>
         </div>
         <div class="code-content">
-            <div class="select-panel">
-                <div class="menu-wrapper">
-                    <button class="open-menu-button" id="open-location-menu-button">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
-                                    stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Default
-                    </button>
 
-                    <ul class="main-menu" id="locationMenu">
-                        <li>
-                            <div class="left align-center">
-                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2.25" y="2.5" width="10.5" height="7.75" rx="1"
-                                            stroke="currentColor" stroke-width="0.75"/>
-                                    <rect x="0.75" y="10.25" width="13.5" height="2.25" rx="1.125"
-                                            stroke="currentColor" stroke-width="0.75"/>
+        </div>
+        <div class="select-panel">
+            <div class="menu-wrapper">
+                <button class="open-menu-button" id="open-location-menu-button">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.915 11.625
+                                A2.525 2.525 0 0 1 2.901 6.981
+                                A3.7 3.7 0 0 1 9.663 4.824
+                                A2.4 2.4 0 0 1 12.400 7.193
+                                A2.425 2.425 0 0 1 11.889 11.625
+                                Z"
+                                stroke="currentColor" stroke-width="0.75"
+                                stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Default
+                </button>
+
+                <ul class="main-menu" id="locationMenu">
+                    <li>
+                        <div class="left align-center">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2.25" y="2.5" width="10.5" height="7.75" rx="1"
+                                        stroke="currentColor" stroke-width="0.75"/>
+                                <rect x="0.75" y="10.25" width="13.5" height="2.25" rx="1.125"
+                                        stroke="currentColor" stroke-width="0.75"/>
+                            </svg>
+                            Local
+                        </div>
+                        <div class="right align-center">
+                            <div class="badge">Download</div>
+                            <span class="badge badge-no-bg">Desktop only</span>
+                        </div>
+                    </li>
+
+                    <li class="has-submenu">
+                        <div class="left align-center">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.915 11.625
+                                        A2.525 2.525 0 0 1 2.901 6.981
+                                        A3.7 3.7 0 0 1 9.663 4.824
+                                        A2.4 2.4 0 0 1 12.400 7.193
+                                        A2.425 2.425 0 0 1 11.889 11.625
+                                        Z"
+                                        stroke="currentColor" stroke-width="0.75"
+                                        stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Cloud</span>
+                        </div>
+
+                        <div class="right align-center">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.75 3.75 L9.5 7.5 L5.75 11.25" stroke="currentColor" stroke-width="0.75"
+                                        stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <ul class="submenu">
+                            <li class="selected">
+                                Default
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.5 12.5 L10 17 L18.5 7.5" stroke="#0080ff" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                Local
-                            </div>
-                            <div class="right align-center">
-                                <div class="badge">Download</div>
-                                <span class="badge badge-no-bg">Desktop only</span>
-                            </div>
-                        </li>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="action">+ Add cloud environment...</li>
+                        </ul>
+                    </li>
 
-                        <li class="has-submenu">
-                            <div class="left">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"
-                                            stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span>Cloud</span>
-                            </div>
+                    <li class="has-submenu">
+                        <div class="left align-center">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 2.5 L5 17.5 L8.7 14 L11 19.5 L13.5 18.5 L11.2 13.2 L16 13.2 Z"
+                                        stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Remote Control</span>
+                        </div>
 
-                            <div class="right">
-                                <span class="arrow">›</span>
-                            </div>
-
-                            <ul class="submenu">
-                                <li class="selected">
-                                    Default
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 12.5 L10 17 L18.5 7.5" stroke="#0080ff" stroke-width="1.8"
-                                            stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </li>
-                                <li class="divider"></li>
-                                <li class="action">+ Add cloud environment...</li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu">
-                            <div class="left">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 2.5 L5 17.5 L8.7 14 L11 19.5 L13.5 18.5 L11.2 13.2 L16 13.2 Z"
-                                            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-                                </svg>
-                                <span>Remote Control</span>
-                            </div>
-
-                            <div class="right">
-                                <span class="arrow">›</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                        <div class="right align-center">
+                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.75 3.75 L9.5 7.5 L5.75 11.25" stroke="currentColor" stroke-width="0.75"
+                                        stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </li>
+                </ul>
 
                 <div class="menu-wrapper">
                     <button class="open-menu-button" id="open-github-repos-button">
@@ -242,4 +261,307 @@ document.addEventListener('click', (event) => {
         }
     }
 
+});
+
+/* ===================== scripted conversation playback ===================== */
+
+const chatItems = document.querySelectorAll('.chat');
+
+const ABORT = Symbol('aborted');
+let playToken = 0;
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+function escapeHTML(text) {
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function renderInline(text) {
+    return escapeHTML(text)
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
+
+function renderMarkdown(md) {
+    const lines = md.split('\n');
+    const blocks = [];
+    let i = 0;
+
+    const isBreak = line =>
+        line.trim() === '' || line.startsWith('```') || line.startsWith('### ') || /^[-*] /.test(line);
+
+    while (i < lines.length) {
+        const line = lines[i];
+
+        if (line.startsWith('```')) {
+            const buffer = [];
+            i++;
+            while (i < lines.length && !lines[i].startsWith('```')) {
+                buffer.push(lines[i]);
+                i++;
+            }
+            i++;
+            blocks.push(`<pre><code>${escapeHTML(buffer.join('\n'))}</code></pre>`);
+        }
+        else if (line.trim() === '') {
+            i++;
+        }
+        else if (line.startsWith('### ')) {
+            blocks.push(`<h3>${renderInline(line.slice(4))}</h3>`);
+            i++;
+        }
+        else if (/^[-*] /.test(line)) {
+            const items = [];
+            while (i < lines.length && /^[-*] /.test(lines[i])) {
+                items.push(`<li>${renderInline(lines[i].slice(2))}</li>`);
+                i++;
+            }
+            blocks.push(`<ul>${items.join('')}</ul>`);
+        }
+        else {
+            const buffer = [];
+            while (i < lines.length && !isBreak(lines[i])) {
+                buffer.push(lines[i]);
+                i++;
+            }
+            blocks.push(`<p>${renderInline(buffer.join(' '))}</p>`);
+        }
+    }
+
+    return blocks.join('');
+}
+
+function guard(state) {
+    if (state.token !== playToken) throw ABORT;
+}
+
+async function wait(ms, state) {
+    let waited = 0;
+    while (waited < ms) {
+        if (state.skip) return;
+        await sleep(Math.min(40, ms - waited));
+        guard(state);
+        waited += 40;
+    }
+}
+
+function place(parent, node, state) {
+    parent.appendChild(node);
+    parent.appendChild(state.caret);
+}
+
+async function streamNode(dest, src, state) {
+    if (src.nodeType === Node.TEXT_NODE) {
+        const full = src.nodeValue;
+        const node = document.createTextNode('');
+        place(dest, node, state);
+
+        let shown = 0;
+        while (shown < full.length && !state.skip) {
+            shown = Math.min(full.length, shown + state.chars);
+            node.nodeValue = full.slice(0, shown);
+            state.scroll();
+            await sleep(18);
+            guard(state);
+        }
+
+        node.nodeValue = full;
+        state.scroll();
+        return;
+    }
+
+    if (src.nodeType !== Node.ELEMENT_NODE) return;
+
+    const el = src.cloneNode(false);
+    place(dest, el, state);
+
+    const previousChars = state.chars;
+    if (el.tagName === 'PRE') state.chars = 7;
+
+    for (const child of Array.from(src.childNodes)) {
+        await streamNode(el, child, state);
+    }
+
+    state.chars = previousChars;
+}
+
+async function typeIntoComposer(text, state) {
+    state.composer.classList.remove('empty');
+    state.composer.textContent = '';
+    state.composer.appendChild(state.caret);
+
+    for (let i = 0; i < text.length; i++) {
+        if (state.skip) break;
+        state.composer.textContent = text.slice(0, i + 1);
+        state.composer.appendChild(state.caret);
+        await sleep(26 + Math.random() * 34);
+        guard(state);
+    }
+
+    state.composer.textContent = text;
+    state.composer.appendChild(state.caret);
+}
+
+function resetComposer(state) {
+    state.caret.remove();
+    state.composer.classList.add('empty');
+    state.composer.textContent = 'Reply to Claude...';
+}
+
+async function playMessage(message, state) {
+    await wait(message.pause || 400, state);
+
+    if (message.role === 'user') {
+        await typeIntoComposer(message.text, state);
+        await wait(320, state);
+        resetComposer(state);
+
+        const bubble = document.createElement('div');
+        bubble.className = 'msg user';
+        bubble.innerHTML = `<div class="msg-body"></div>`;
+        bubble.querySelector('.msg-body').textContent = message.text;
+        state.list.appendChild(bubble);
+        state.scroll();
+        await wait(420, state);
+        return;
+    }
+
+    const wrap = document.createElement('div');
+    wrap.className = 'msg assistant';
+    wrap.innerHTML = `
+        <div class="msg-head">
+            <img src="assets/claude.png" alt="Claude" width="18" height="18">
+            Claude
+        </div>
+        <div class="msg-body"><div class="thinking"><span></span><span></span><span></span></div></div>
+    `;
+    state.list.appendChild(wrap);
+    state.scroll();
+
+    await wait(900, state);
+
+    const body = wrap.querySelector('.msg-body');
+    body.innerHTML = '';
+
+    const source = document.createElement('div');
+    source.innerHTML = renderMarkdown(message.text);
+
+    state.chars = message.speed || 2;
+    for (const child of Array.from(source.childNodes)) {
+        await streamNode(body, child, state);
+    }
+
+    state.caret.remove();
+    state.scroll();
+}
+
+async function playConversation(conversation, state) {
+    try {
+        for (const message of conversation.messages) {
+            await playMessage(message, state);
+        }
+        resetComposer(state);
+        state.scroll();
+        state.hint.textContent = 'End of conversation — hit Replay to watch it again.';
+    }
+    catch (error) {
+        if (error !== ABORT) throw error;
+    }
+}
+
+function openConversation(key) {
+    const conversation = CONVERSATIONS[key];
+    if (!conversation) return;
+
+    playToken++;
+
+    claudeTxt.textContent = "Claude";
+    chatToggle.classList.add('active');
+    codeToggle.classList.remove('active');
+    mainContent.classList.add('chat-mode');
+    mainContent.innerHTML = `
+        <div class="chat-view">
+            <div class="chat-topbar">
+                <span>${conversation.title}</span>
+                <button class="replay-btn" id="replay-btn">↻ Replay</button>
+            </div>
+
+            <div class="transcript" id="transcript">
+                <div class="transcript-inner" id="transcript-inner"></div>
+            </div>
+
+            <div class="composer-area">
+                <div class="input-card">
+                    <div class="composer-text empty" id="composer-text">Reply to Claude...</div>
+
+                    <div class="input-controls">
+                        <div class="left-controls">
+                            <span class="add-icon">+</span>
+                            <div class="mode-toggle">
+                                <button class="toggle-btn active">Chat</button>
+                                <button class="toggle-btn">Cowork</button>
+                            </div>
+                        </div>
+
+                        <div class="right-controls">
+                            <span>Opus 5 High</span>
+                            <span>∨</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skip-hint" id="skip-hint">Click anywhere to skip ahead</div>
+            </div>
+        </div>
+    `;
+
+    const transcript = document.getElementById('transcript');
+    const caret = document.createElement('span');
+    caret.className = 'caret';
+
+    const state = {
+        token: playToken,
+        skip: false,
+        chars: 2,
+        caret: caret,
+        list: document.getElementById('transcript-inner'),
+        composer: document.getElementById('composer-text'),
+        hint: document.getElementById('skip-hint'),
+        scroll: () => { transcript.scrollTop = transcript.scrollHeight; }
+    };
+
+    mainContent.querySelector('.chat-view').addEventListener('click', event => {
+        if (event.target.closest('#replay-btn')) return;
+        state.skip = true;
+        state.hint.textContent = '';
+    });
+
+    document.getElementById('replay-btn').addEventListener('click', () => openConversation(key));
+
+    playConversation(conversation, state);
+}
+
+function leaveConversation() {
+    playToken++;
+    mainContent.classList.remove('chat-mode');
+    chatItems.forEach(item => item.classList.remove('active'));
+}
+
+chatItems.forEach(item => {
+    item.addEventListener('click', () => {
+        chatItems.forEach(other => other.classList.remove('active'));
+        item.classList.add('active');
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        openConversation(item.dataset.chat);
+    });
+});
+
+chatToggle.addEventListener('click', leaveConversation);
+codeToggle.addEventListener('click', leaveConversation);
+
+newChatBtn.addEventListener('click', () => {
+    leaveConversation();
+    mainContent.innerHTML = chatHTML;
 });
